@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Name: haystack-geoshapes
+Version: 0.0.1
+Summary: Add support for elastic search geoshapes.
+Home-page: UNKNOWN
+Author: Ben Scott
+Author-email: ben@benscott.co.uk
+License: UNKNOWN
+Description: curl -XGET 'http://172.28.128.3:9200/sciencelive/_search' -d '{
+            "query" : {
+                "geo_shape": {
+                  "location_radius": {
+                    "shape": {
+                      "type": "circle",
+                      "radius": "200mi",
+                      "coordinates": [
+                        51.53717,
+                        -0.09652
+                      ]
+                    }
+                  }
+                }
+            }
+        }'
+        
+Platform: UNKNOWN

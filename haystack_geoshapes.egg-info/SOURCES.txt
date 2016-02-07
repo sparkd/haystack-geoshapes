@@ -1,0 +1,13 @@
+README.rst
+setup.py
+geoshapes/__init__.py
+geoshapes/elasticsearch_backend.py
+geoshapes/indexes.py
+geoshapes/utils.py
+haystack_geoshapes.egg-info/PKG-INFO
+haystack_geoshapes.egg-info/SOURCES.txt
+haystack_geoshapes.egg-info/dependency_links.txt
+haystack_geoshapes.egg-info/not-zip-safe
+haystack_geoshapes.egg-info/pbr.json
+haystack_geoshapes.egg-info/requires.txt
+haystack_geoshapes.egg-info/top_level.txt
