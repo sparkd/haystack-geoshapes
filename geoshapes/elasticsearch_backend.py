@@ -51,22 +51,30 @@ class GeoShapeElasticSearchBackend(ElasticsearchSearchBackend):
                     'unit': "km"
                 }
 
-            filter = {
-                "geo_shape": {
-                    geo_shape['field']: {
-                        "shape": {
+            geo_filter = {
+                geo_shape['field']: {
+                    "shape": {
                         "type": "circle",
                         "radius": distance,
                         "coordinates": [
                             lng,
                             lat
                         ]
-                        }
                     }
-
                 }
             }
+            # Add filter - we also allow null values (shape field missing)
+            # And include any existing search filters in "must" - has model type etc.,
+            filter = {
+                "bool" : {
+                  "should" : [
+                     { "missing": {"field" : geo_shape['field']}},
+                     { "geo_shape": geo_filter}
+                  ],
+                  "must": search_kwargs['query']['filtered']["filter"]
+               },
 
+            }
             search_kwargs['query']['filtered']["filter"] = filter
 
         return search_kwargs
