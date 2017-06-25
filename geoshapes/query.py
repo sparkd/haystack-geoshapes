@@ -6,10 +6,12 @@ Created by Ben Scott on '07/02/2016'.
 
 from haystack.query import SearchQuerySet
 
+
 class GeoShapeSearchQuerySet(SearchQuerySet):
     """
     Extend SearchQuerySet with a geo_shape method to add geo shape query
     """
+
     def geo_shape(self, field, point, dist):
         """
         Spatial: Denotes results must have distance measurements from the
